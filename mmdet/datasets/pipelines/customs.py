@@ -85,7 +85,7 @@ class CustomMixUp(object):
     def get_img1(self, name):
         img_id = self.name2ids[name]
         anns = self.coco_json.imgToAnns[img_id]
-        labels = [np.int64(self.cat2label(annt['category_id'])) for annt in anns]
+        labels = [np.int64(self.cat2label[annt['category_id']]) for annt in anns]
         bboxes = [[np.float32(annt['bbox'][0]),
                    np.float32(annt['bbox'][1]),
                    np.float32(annt['bbox'][0] + annt['bbox'][2] - 1),
@@ -102,7 +102,7 @@ class CustomMixUp(object):
         name = img_info['file_name']
         anns = list(self.coco_json.imgToAnns.values())[idx2]
 
-        labels = [np.int64(self.cat2label(annt['category_id'])) for annt in anns]
+        labels = [np.int64(self.cat2label[annt['category_id']]) for annt in anns]
         bboxes = [[np.float32(annt['bbox'][0]),
                    np.float32(annt['bbox'][1]),
                    np.float32(annt['bbox'][0] + annt['bbox'][2] - 1),
