@@ -17,6 +17,7 @@ from mmdet.utils import get_root_logger
 from ..builder import BACKBONES
 
 from mmcv.runner import BaseModule
+from mmcv.runner import auto_fp16
 
 class Mlp(nn.Module):
     """ Multilayer perceptron."""
@@ -195,7 +196,7 @@ class SwinTransformerBlock(nn.Module):
 
         self.H = None
         self.W = None
-
+    @auto_fp16()
     def forward(self, x, mask_matrix):
         """ Forward function.
 
