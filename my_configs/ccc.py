@@ -389,7 +389,7 @@ dist_params = dict(backend='nccl')
 log_level = 'INFO'
 resume_from = None
 workflow = [('train', 1)]
-fp16 = dict(loss_scale=512.0)
+fp16 = None
 #  auto_resume = False
 opencv_num_threads = 0
 mp_start_method = 'fork'
