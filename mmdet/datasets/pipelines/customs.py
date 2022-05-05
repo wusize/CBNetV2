@@ -79,7 +79,7 @@ class CustomMixUp(object):
         self.cat2label = {cat_id: i for i, cat_id in enumerate(self.cat_ids)}
 
         self.name2ids = {}
-        for k, v in self.coco_json.imgs:
+        for k, v in self.coco_json.imgs.items():
             self.name2ids[v['file_name']] = k
 
     def get_img1(self, name):
